@@ -33,7 +33,7 @@ RUN case "${TARGETPLATFORM}" in \
     mkdir -p /opt/maven /opt/jdk && \
     wget ${DOWNLOAD_URL} && \
     tar -C /opt/jdk -xzf ./${ZULU_TAR}.tar.gz && \
-    mv /opt/jdk/${ZULU_TAR} /opt/jdk/zulu17 && \
+    mv /opt/jdk/${ZULU_TAR} /opt/jdk/zulu && \
     rm ./${ZULU_TAR}.tar.gz
 
 ENV JAVA_HOME="/opt/jdk/zulu"
