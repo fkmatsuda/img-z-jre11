@@ -28,7 +28,7 @@ RUN case "${TARGETPLATFORM}" in \
                             ZULU_TAR="zulu11.54.23-ca-jdk11.0.14-linux_aarch64"    ;; \
     esac && \
     apt-get update -qq && apt-get upgrade -qq --autoremove --purge && \
-    apt-get install -qq wget git java-common libasound2 libxi6 libxtst6 && \
+    apt-get install -qq wget git java-common libasound2 libxi6 libxtst6 wait-for-it && \
     apt-get clean && \
     mkdir -p /opt/maven /opt/jdk && \
     wget ${DOWNLOAD_URL} && \
