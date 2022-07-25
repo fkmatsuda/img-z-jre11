@@ -23,8 +23,10 @@ ENV DOWNLOAD_URL=invalid
 ENV ZULU_DEB=invalid
 RUN case "${TARGETPLATFORM}" in \
          "linux/amd64")     DOWNLOAD_URL=https://cdn.azul.com/zulu/bin/zulu11.58.15-ca-jre11.0.16-linux_amd64.deb               \
+                            ln -s /usr/lib/jvm/zre-11-amd64 /java-home                                                              && \
                             ZULU_DEB="zulu11.58.15-ca-jre11.0.16-linux_amd64.deb"        ;; \
          "linux/arm64")     DOWNLOAD_URL=https://cdn.azul.com/zulu-embedded/bin/zulu11.58.15-ca-jre11.0.16-linux_arm64.deb           \
+                            ln -s /usr/lib/jvm/zre-11-arm64 /java-home                                                              && \
                             ZULU_DEB="zulu11.58.15-ca-jre11.0.16-linux_arm64.deb"    ;; \
     esac && \
     apt-get update -qq && apt-get upgrade -qq --autoremove --purge && \
@@ -34,5 +36,5 @@ RUN case "${TARGETPLATFORM}" in \
     dpkg -i ./${ZULU_DEB} && \
     rm ./${ZULU_DEB}
 
-ENV JAVA_HOME="/usr/lib/jvm/zulu11"
+ENV JAVA_HOME="/java-home"
 ENV PATH="$JAVA_HOME/bin:$PATH"
