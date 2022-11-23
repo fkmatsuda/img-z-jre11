@@ -27,7 +27,7 @@ RUN case "${TARGETPLATFORM}" in \
                             ZULU_DEB="zulu11.60.19-ca-jre11.0.17-linux_amd64.deb"        ;; \
          "linux/arm64")     DOWNLOAD_URL=https://cdn.azul.com/zulu-embedded/bin/zulu11.60.19-ca-jre11.0.17-linux_arm64.deb      && \
                             ln -s /usr/lib/jvm/zre-11-arm64 /java-home                                                          && \
-                            ZULU_DEB="zulu-embedded/bin/zulu11.60.19-ca-jre11.0.17-linux_arm64.deb"    ;; \
+                            ZULU_DEB="zulu11.60.19-ca-jre11.0.17-linux_arm64.deb"    ;; \
     esac && \
     apt-get update -qq && apt-get upgrade -qq --autoremove --purge && \
     apt-get install -qq wget git java-common libasound2 libxi6 libxtst6 wait-for-it libxrender1 libfontconfig1 curl && \
